@@ -2,7 +2,7 @@ using System;
 
 public class Move
 {
-    string name;
-    Type type;
-    Action effect;
+    public string name;
+    public Type type;
+    public Action<Pokemon, Pokemon> effect;
 }

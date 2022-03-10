@@ -4,18 +4,24 @@ using UnityEngine.UI;
 
 public class Pokemon : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] Text healthText;
 
     int maxHP = 20;
     int currentHP = 20;
-    int attack = 4;
+    public int attack = 4;
     int defence = 0;
     List<Move> moves = new List<Move>();
-    
-    void Start()
+    Move selectedMove = null;
+
+    public void SelectMove(int moveIndex)
     {
-        Move tackle = new Move();
-        moves.Add(tackle);
+        selectedMove = moves[moveIndex];
+    }
+
+    public void SelectTarget(Pokemon target)
+    {
+        gameManager.PerformMove(selectedMove, this, target);
     }
 
     public void TakeDamage(int damage)
@@ -24,8 +30,11 @@ public class Pokemon : MonoBehaviour
         healthText.text = "HP: " + currentHP + "/" + maxHP;
     }
 
-    public void Tackle(Pokemon target)
+    void Start()
     {
-        target.TakeDamage(attack);
+        moves.Add(MoveList.moves["tackle"]);
+        moves.Add(MoveList.moves["tackle"]);
+        moves.Add(MoveList.moves["tackle"]);
+        moves.Add(MoveList.moves["tackle"]);
     }
 }

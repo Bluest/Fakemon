@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    void Update()
+    public void PerformMove(Move move, Pokemon user, Pokemon target)
     {
-        /*
-        A move has a user, priority, type, target, effect, etc.
-        */
+        move.effect(user, target);
     }
 }
