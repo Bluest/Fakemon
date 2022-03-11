@@ -12,7 +12,7 @@ public static class MoveList
             type = Type.Normal,
             effect = (user, target) =>
             {
-                target.TakeDamage(user.attack);
+                target.TakeDamage(user.stats.currentAttack);
             }
         });
     }

@@ -9,8 +9,7 @@ public class Pokemon : MonoBehaviour
 
     int maxHP = 20;
     int currentHP = 20;
-    public int attack = 4;
-    int defence = 0;
+    public Stats stats;
     List<Move> moves = new List<Move>();
     Move selectedMove = null;
 
@@ -26,12 +25,15 @@ public class Pokemon : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHP -= (damage - defence);
+        currentHP -= (damage - stats.currentDefense);
         healthText.text = "HP: " + currentHP + "/" + maxHP;
     }
 
     void Start()
     {
+        stats.baseAttack = 4;
+        stats.ResetAll();
+
         moves.Add(MoveList.moves["tackle"]);
         moves.Add(MoveList.moves["tackle"]);
         moves.Add(MoveList.moves["tackle"]);
