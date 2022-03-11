@@ -474,7 +474,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 377329625}
   healthText: {fileID: 887367321}
-  attack: 4
 --- !u!1 &449995559
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,9 +544,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Tackle
-
-'
+  m_Text: Apologise
 --- !u!222 &449995562
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -736,7 +733,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 377329625}
   healthText: {fileID: 916503044}
-  attack: 4
 --- !u!1 &758678327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,9 +1132,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Tackle
-
-'
+  m_Text: Gun
 --- !u!222 &896464411
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1441,9 +1435,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Tackle
-
-'
+  m_Text: Hug
 --- !u!222 &1308467604
 CanvasRenderer:
   m_ObjectHideFlags: 0

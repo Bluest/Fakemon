@@ -29,14 +29,20 @@ public class Pokemon : MonoBehaviour
         healthText.text = "HP: " + currentHP + "/" + maxHP;
     }
 
+    public void SetHP(int hp)
+    {
+        currentHP = hp;
+        healthText.text = "HP: " + currentHP + "/" + maxHP;
+    }
+
     void Start()
     {
         stats.baseAttack = 4;
         stats.ResetAll();
 
         moves.Add(MoveList.moves["tackle"]);
-        moves.Add(MoveList.moves["tackle"]);
-        moves.Add(MoveList.moves["tackle"]);
-        moves.Add(MoveList.moves["tackle"]);
+        moves.Add(MoveList.moves["apologise"]);
+        moves.Add(MoveList.moves["hug"]);
+        moves.Add(MoveList.moves["gun"]);
     }
 }
