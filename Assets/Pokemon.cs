@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Pokemon : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;
+    [SerializeField] BattleManager battleManager;
     [SerializeField] Text healthText;
 
     List<Type> types = new List<Type>();
@@ -21,7 +21,7 @@ public class Pokemon : MonoBehaviour
 
     public void SelectTarget(Pokemon target)
     {
-        gameManager.PerformMove(selectedMove, this, target);
+        battleManager.PerformMove(selectedMove, this, target);
     }
 
     public void TakeDamage(int damage)

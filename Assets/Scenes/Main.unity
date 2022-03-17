@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 377329626}
   - component: {fileID: 377329625}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: BattleManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5bad8e7cde1cd469ae90fade6341a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 377329625}
+  battleManager: {fileID: 377329625}
   healthText: {fileID: 887367321}
 --- !u!1 &449995559
 GameObject:
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5bad8e7cde1cd469ae90fade6341a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 377329625}
+  battleManager: {fileID: 377329625}
   healthText: {fileID: 916503044}
 --- !u!1 &758678327
 GameObject:

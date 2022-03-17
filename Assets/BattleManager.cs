@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class BattleManager : MonoBehaviour
 {
     public void PerformMove(Move move, Pokemon user, Pokemon target)
     {
