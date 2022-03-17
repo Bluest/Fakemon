@@ -7,6 +7,7 @@ public class Pokemon : MonoBehaviour
     [SerializeField] GameManager gameManager;
     [SerializeField] Text healthText;
 
+    List<Type> types = new List<Type>();
     int maxHP = 20;
     int currentHP = 20;
     public Stats stats;
@@ -25,7 +26,7 @@ public class Pokemon : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHP -= (damage - stats.currentDefense);
+        currentHP -= (int)(damage * TypeData.GetMultiplier(Type.Normal, types) - stats.currentDefense);
         healthText.text = "HP: " + currentHP + "/" + maxHP;
     }
 
@@ -37,6 +38,8 @@ public class Pokemon : MonoBehaviour
 
     void Start()
     {
+        types.Add(Type.Fire);
+
         stats.baseAttack = 4;
         stats.ResetAll();
 

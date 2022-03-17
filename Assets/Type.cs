@@ -16,5 +16,6 @@ public enum Type
     Psychic,
     Ice,
     Dragon,
-    Dark
+    Dark,
+    Fairy
 }
