@@ -30,22 +30,17 @@ public class Pokemon : MonoBehaviour
         healthText.text = "HP: " + currentHP + "/" + maxHP;
     }
 
-    public void SetHP(int hp)
-    {
-        currentHP = hp;
-        healthText.text = "HP: " + currentHP + "/" + maxHP;
-    }
-
     void Start()
     {
-        types.Add(Type.Fire);
+        types.Add(Type.Ground);
+        types.Add(Type.Rock);
 
         stats.baseAttack = 4;
         stats.ResetAll();
 
-        moves.Add(MoveList.moves["tackle"]);
-        moves.Add(MoveList.moves["apologise"]);
-        moves.Add(MoveList.moves["hug"]);
-        moves.Add(MoveList.moves["gun"]);
+        moves.Add(MoveList.moves["stomp"]);
+        moves.Add(MoveList.moves["hammer-arm"]);
+        moves.Add(MoveList.moves["earthquake"]);
+        moves.Add(MoveList.moves["megahorn"]);
     }
 }

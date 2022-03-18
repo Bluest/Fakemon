@@ -6,40 +6,56 @@ public static class MoveList
 
     static MoveList()
     {
-        moves.Add("tackle", new Move
+        moves.Add("stomp", new Move
         {
-            name = "Tackle",
+            name = "Stomp",
             type = Type.Normal,
+            category = Category.Physical,
+            power = 65,
+            accuracy = 1f,
+            pp = 20,
             effect = (user, target) =>
             {
                 target.TakeDamage(user.stats.currentAttack);
             }
         });
-        moves.Add("apologise", new Move
+        moves.Add("hammer-arm", new Move
         {
-            name = "Apologise",
-            type = Type.Normal,
+            name = "Hammer Arm",
+            type = Type.Fighting,
+            category = Category.Physical,
+            power = 100,
+            accuracy = 0.9f,
+            pp = 10,
             effect = (user, target) =>
             {
-                target.TakeDamage(-1);
+                target.TakeDamage(user.stats.currentAttack);
             }
         });
-        moves.Add("hug", new Move
+        moves.Add("earthquake", new Move
         {
-            name = "Hug",
-            type = Type.Normal,
+            name = "Earthquake",
+            type = Type.Ground,
+            category = Category.Physical,
+            power = 100,
+            accuracy = 1f,
+            pp = 10,
             effect = (user, target) =>
             {
-                target.SetHP(20);
+                target.TakeDamage(user.stats.currentAttack);
             }
         });
-        moves.Add("gun", new Move
+        moves.Add("megahorn", new Move
         {
-            name = "Gun",
-            type = Type.Normal,
+            name = "Megahorn",
+            type = Type.Bug,
+            category = Category.Physical,
+            power = 120,
+            accuracy = 0.85f,
+            pp = 10,
             effect = (user, target) =>
             {
-                target.TakeDamage(999);
+                target.TakeDamage(user.stats.currentAttack);
             }
         });
     }
