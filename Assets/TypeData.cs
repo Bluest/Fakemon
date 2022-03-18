@@ -62,4 +62,12 @@ public static class TypeData
 
         return multiplier;
     }
+
+    public static string GetEffectivenessMessage(float multiplier)
+    {
+        if (multiplier == 0f) return "It has no effect";
+        if (multiplier < 1f) return "It's not very effective";
+        if (multiplier > 1f) return "It's super effective";
+        return null;
+    }
 }

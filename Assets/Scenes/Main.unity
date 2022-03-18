@@ -473,7 +473,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 377329625}
-  healthText: {fileID: 887367321}
+  hpText: {fileID: 887367321}
+  types: 
 --- !u!1 &449995559
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +545,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Apologise
+  m_Text: Hammer Arm
 --- !u!222 &449995562
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -732,7 +733,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 377329625}
-  healthText: {fileID: 916503044}
+  hpText: {fileID: 916503044}
+  types: 
 --- !u!1 &758678327
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,7 +892,7 @@ GameObject:
   - component: {fileID: 887367322}
   - component: {fileID: 887367321}
   m_Layer: 5
-  m_Name: Health1
+  m_Name: HP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -948,7 +950,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HP: 20/20'
+  m_Text: 'HP: 100/100'
 --- !u!222 &887367322
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1132,7 +1134,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Gun
+  m_Text: Megahorn
 --- !u!222 &896464411
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1153,7 +1155,7 @@ GameObject:
   - component: {fileID: 916503045}
   - component: {fileID: 916503044}
   m_Layer: 5
-  m_Name: Health2
+  m_Name: HP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1211,7 +1213,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HP: 20/20'
+  m_Text: 'HP: 100/100'
 --- !u!222 &916503045
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1435,7 +1437,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hug
+  m_Text: Earthquake
 --- !u!222 &1308467604
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1514,9 +1516,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Tackle
-
-'
+  m_Text: Stomp
 --- !u!222 &1965891218
 CanvasRenderer:
   m_ObjectHideFlags: 0

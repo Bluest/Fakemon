@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class Pokemon : MonoBehaviour
 {
     [SerializeField] BattleManager battleManager;
-    [SerializeField] Text healthText;
+    [SerializeField] Text hpText;
 
-    List<Type> types = new List<Type>();
-    int maxHP = 20;
-    int currentHP = 20;
+    public List<Type> types = new List<Type>();
+    int maxHP;
+    int currentHP;
     public Stats stats;
     List<Move> moves = new List<Move>();
     Move selectedMove = null;
@@ -26,8 +26,8 @@ public class Pokemon : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHP -= (int)(damage * TypeData.GetMultiplier(Type.Normal, types) - stats.currentDefense);
-        healthText.text = "HP: " + currentHP + "/" + maxHP;
+        currentHP -= damage;
+        hpText.text = "HP: " + currentHP + "/" + maxHP;
     }
 
     void Start()
@@ -35,7 +35,7 @@ public class Pokemon : MonoBehaviour
         types.Add(Type.Ground);
         types.Add(Type.Rock);
 
-        stats.baseAttack = 4;
+        maxHP = currentHP = 100;
         stats.ResetAll();
 
         moves.Add(MoveList.moves["stomp"]);

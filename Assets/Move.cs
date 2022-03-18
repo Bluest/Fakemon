@@ -6,7 +6,7 @@ public class Move
     public Type type;
     public Category category;
     public int power;
-    public float accuracy;
+    public int? accuracy;
     public int pp;
     public Action<Pokemon, Pokemon> effect;
 }
