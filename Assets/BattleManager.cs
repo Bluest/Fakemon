@@ -10,7 +10,39 @@ public class BattleManager : MonoBehaviour
 
     void Start()
     {
-        players.Add(GameObject.Find("Player").GetComponent<Player>());
+        Species rhydon = new Species();
+        rhydon.name = "Rhydon";
+        rhydon.types = new List<Type>();
+        rhydon.types.Add(Type.Ground);
+        rhydon.types.Add(Type.Rock);
+        rhydon.hp = 190;
+        rhydon.stats.attack = 160;
+        rhydon.stats.defense = 150;
+        rhydon.stats.specialAttack = 80;
+        rhydon.stats.specialDefense = 80;
+        rhydon.stats.speed = 70;
+        rhydon.moves = new List<Move>();
+        rhydon.moves.Add(MoveList.moves["stomp"]);
+        rhydon.moves.Add(MoveList.moves["hammer-arm"]);
+        rhydon.moves.Add(MoveList.moves["earthquake"]);
+        rhydon.moves.Add(MoveList.moves["megahorn"]);
+
+        Pokemon pokemon1 = GameObject.Find("Pokemon1").GetComponent<Pokemon>();
+        pokemon1.SetSpecies(rhydon);
+        
+        Player player = GameObject.Find("Player").GetComponent<Player>();
+        player.AddToTeam(pokemon1);
+        player.SendOut(1);
+        players.Add(player);
+
+        Pokemon pokemon2 = GameObject.Find("Pokemon2").GetComponent<Pokemon>();
+        pokemon2.SetSpecies(rhydon);
+
+        //Player testAI = GameObject.Find("TestAI").GetComponent<Player>();
+        //testAI.AddToTeam(pokemon2);
+        //testAI.SendOut(1);
+        //ai.Add(testAI);
+
         StartNewTurn();
     }
 

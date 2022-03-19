@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 
-public class Species
+public struct Species
 {
     public string name;
-    public int baseHP;
-    public Stats baseStats;
-    public List<Move> moves = new List<Move>();
+    public List<Type> types;
+    public int hp;
+    public Stats stats;
+    public List<Move> moves;
 }

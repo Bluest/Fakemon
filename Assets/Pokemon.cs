@@ -4,11 +4,12 @@ using UnityEngine.UI;
 
 public class Pokemon : MonoBehaviour
 {
-    [SerializeField] BattleManager battleManager;
+    [SerializeField] BattleManager battleManager; // TODO: This can be moved to Player along with SelectMove & SelectTarget, I think
     [SerializeField] Text hpText;
 
-    Species _species;
+    public string nickname;
     public List<Type> types = new List<Type>();
+    int level = 50;
     int maxHP;
     int currentHP;
     public BattleStats stats;
@@ -17,8 +18,15 @@ public class Pokemon : MonoBehaviour
 
     public void SetSpecies(Species species)
     {
-        _species = species;
-        stats = new BattleStats(species.baseStats);
+        nickname = species.name;
+        types.Add(Type.Ground);
+        types.Add(Type.Rock);
+        maxHP = currentHP = 100;
+        stats = new BattleStats(species.stats);
+        moves.Add(MoveList.moves["stomp"]);
+        moves.Add(MoveList.moves["hammer-arm"]);
+        moves.Add(MoveList.moves["earthquake"]);
+        moves.Add(MoveList.moves["megahorn"]);
     }
 
     public void SelectMove(int moveIndex)
@@ -35,18 +43,5 @@ public class Pokemon : MonoBehaviour
     {
         currentHP -= damage;
         hpText.text = "HP: " + currentHP + "/" + maxHP;
-    }
-
-    void Start()
-    {
-        types.Add(Type.Ground);
-        types.Add(Type.Rock);
-
-        maxHP = currentHP = 100;
-
-        moves.Add(MoveList.moves["stomp"]);
-        moves.Add(MoveList.moves["hammer-arm"]);
-        moves.Add(MoveList.moves["earthquake"]);
-        moves.Add(MoveList.moves["megahorn"]);
     }
 }
