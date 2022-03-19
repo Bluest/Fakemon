@@ -21,7 +21,7 @@ public class Pokemon : MonoBehaviour
 
     public void SelectTarget(Pokemon target)
     {
-        battleManager.PerformMove(selectedMove, this, target);
+        battleManager.SubmitMove(selectedMove, this, target);
     }
 
     public void TakeDamage(int damage)
