@@ -7,12 +7,19 @@ public class Pokemon : MonoBehaviour
     [SerializeField] BattleManager battleManager;
     [SerializeField] Text hpText;
 
+    Species _species;
     public List<Type> types = new List<Type>();
     int maxHP;
     int currentHP;
-    public Stats stats;
+    public BattleStats stats;
     List<Move> moves = new List<Move>();
     Move selectedMove = null;
+
+    public void SetSpecies(Species species)
+    {
+        _species = species;
+        stats = new BattleStats(species.baseStats);
+    }
 
     public void SelectMove(int moveIndex)
     {
@@ -36,7 +43,6 @@ public class Pokemon : MonoBehaviour
         types.Add(Type.Rock);
 
         maxHP = currentHP = 100;
-        stats.ResetAll();
 
         moves.Add(MoveList.moves["stomp"]);
         moves.Add(MoveList.moves["hammer-arm"]);

@@ -44,7 +44,7 @@ public static class MoveList
                 string message = TypeData.GetEffectivenessMessage(typeMultiplier);
                 if (message != null) Debug.Log(message);
 
-                user.stats.speedStage -= 1;
+                user.stats.ModifyStage(Stat.Speed, -1);
             }
         });
         moves.Add("earthquake", new Move

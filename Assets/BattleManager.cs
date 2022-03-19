@@ -4,6 +4,7 @@ using UnityEngine;
 public class BattleManager : MonoBehaviour
 {
     List<Player> players = new List<Player>();
+    List<Player> ai = new List<Player>();
     List<Pokemon> waitingFor = new List<Pokemon>();
     List<(Move, Pokemon, Pokemon)> submittedMoves = new List<(Move, Pokemon, Pokemon)>();
 
