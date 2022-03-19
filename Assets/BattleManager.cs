@@ -38,10 +38,10 @@ public class BattleManager : MonoBehaviour
         Pokemon pokemon2 = GameObject.Find("Pokemon2").GetComponent<Pokemon>();
         pokemon2.SetSpecies(rhydon);
 
-        //Player testAI = GameObject.Find("TestAI").GetComponent<Player>();
-        //testAI.AddToTeam(pokemon2);
-        //testAI.SendOut(1);
-        //ai.Add(testAI);
+        Player testAI = GameObject.Find("TestAI").GetComponent<Player>();
+        testAI.AddToTeam(pokemon2);
+        testAI.SendOut(1);
+        ai.Add(testAI);
 
         StartNewTurn();
     }
@@ -62,7 +62,24 @@ public class BattleManager : MonoBehaviour
         submittedMoves.Add((move, user, target));
         waitingFor.Remove(user);
         if (waitingFor.Count == 0)
+        {
+            PerformAI();
             PerformTurn();
+        }
+    }
+
+    void PerformAI()
+    {
+        foreach (Player aiTrainer in ai)
+        {
+            foreach (Pokemon pokemon in aiTrainer.activePokemon)
+            {
+                pokemon.SelectMove(Random.Range(0, 4));
+                Player targetPlayer = players[Random.Range(0, players.Count)];
+                Pokemon targetPokemon = targetPlayer.activePokemon[Random.Range(0, targetPlayer.activePokemon.Count)];
+                submittedMoves.Add((pokemon.selectedMove, pokemon, targetPokemon));
+            }
+        }
     }
 
     void PerformTurn()

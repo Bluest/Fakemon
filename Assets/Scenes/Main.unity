@@ -458,7 +458,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &439011939
 MonoBehaviour:
@@ -474,6 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleManager: {fileID: 377329625}
   hpText: {fileID: 887367321}
+  nickname: 
   types: 
 --- !u!1 &449995559
 GameObject:
@@ -718,7 +719,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &567778915
 MonoBehaviour:
@@ -734,6 +735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleManager: {fileID: 377329625}
   hpText: {fileID: 916503044}
+  nickname: 
   types: 
 --- !u!1 &725288104
 GameObject:
@@ -994,7 +996,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HP: 100/100'
+  m_Text: 'HP: '
 --- !u!222 &887367322
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1257,7 +1259,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HP: 100/100'
+  m_Text: 'HP: '
 --- !u!222 &916503045
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1345,7 +1347,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 393080968}
+  m_TargetGraphic: {fileID: 1059440811}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1490,6 +1492,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308467601}
   m_CullTransparentMesh: 1
+--- !u!1 &1492407549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1492407551}
+  - component: {fileID: 1492407550}
+  m_Layer: 0
+  m_Name: TestAI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1492407550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492407549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc2d9a0b5552df4cb5926e61a4fec52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activePokemon: []
+--- !u!4 &1492407551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492407549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1965891215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,7 +1694,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 393080968}
+  m_TargetGraphic: {fileID: 2116587146}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:

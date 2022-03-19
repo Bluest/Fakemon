@@ -14,14 +14,14 @@ public class Pokemon : MonoBehaviour
     int currentHP;
     public BattleStats stats;
     List<Move> moves = new List<Move>();
-    Move selectedMove = null;
+    public Move selectedMove = null; // TODO: Only public for rough AI implementation
 
     public void SetSpecies(Species species)
     {
         nickname = species.name;
         types.Add(Type.Ground);
         types.Add(Type.Rock);
-        maxHP = currentHP = 100;
+        maxHP = currentHP = species.hp;
         stats = new BattleStats(species.stats);
         moves.Add(MoveList.moves["stomp"]);
         moves.Add(MoveList.moves["hammer-arm"]);
