@@ -27,6 +27,8 @@ public class Pokemon : MonoBehaviour
         moves.Add(MoveList.moves["hammer-arm"]);
         moves.Add(MoveList.moves["earthquake"]);
         moves.Add(MoveList.moves["megahorn"]);
+
+        hpText.text = "HP: " + currentHP + "/" + maxHP;
     }
 
     public void SelectMove(int moveIndex)
