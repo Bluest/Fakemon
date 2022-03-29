@@ -18,6 +18,24 @@ public class BattleStats
         _stages.speed = 0;
     }
 
+    int CalculateCurrentStatValue(int baseValue, int stage)
+    {
+        return baseValue + stage * baseValue / 2;
+    }
+
+    public int GetStat(Stat stat)
+    {
+        switch (stat)
+        {
+            case Stat.Attack: return CalculateCurrentStatValue(_base.attack, _stages.attack);
+            case Stat.Defense: return CalculateCurrentStatValue(_base.defense, _stages.defense);
+            case Stat.SpecialAttack: return CalculateCurrentStatValue(_base.specialAttack, _stages.specialAttack);
+            case Stat.SpecialDefense: return CalculateCurrentStatValue(_base.specialDefense, _stages.specialDefense);
+            case Stat.Speed: return CalculateCurrentStatValue(_base.speed, _stages.speed);
+            default: return 0;
+        }
+    }
+
     public void ModifyStage(Stat stat, int value)
     {
         switch (stat)

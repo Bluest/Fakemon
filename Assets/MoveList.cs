@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public static class MoveList
 {
@@ -20,10 +19,12 @@ public static class MoveList
                 if (!MoveEffects.SuccessfulHit(100)) return;
 
                 float multiplier = 1f;
-                multiplier *= TypeData.GetMultiplier(Type.Normal, target.types);
-                target.TakeDamage(MoveEffects.CalculateDamage(user, target, power: 65, multiplier));
+                if (user.types.Contains(Type.Normal)) multiplier *= 1.5f; // STAB
+                multiplier *= TypeData.GetMultiplier(Type.Normal, target.types); // Type
+                float damage = MoveEffects.CalculateDamage(user, target, power: 65, Category.Physical);
+                target.TakeDamage((int)(damage * multiplier));
 
-                // 30% flinch chance
+                target.ApplyStatusCondition(StatusCondition.Flinch, 30);
             }
         });
         moves.Add("hammer-arm", new Move
@@ -39,8 +40,10 @@ public static class MoveList
                 if (!MoveEffects.SuccessfulHit(90)) return;
 
                 float multiplier = 1f;
-                multiplier *= TypeData.GetMultiplier(Type.Fighting, target.types);
-                target.TakeDamage(MoveEffects.CalculateDamage(user, target, power: 100, multiplier));
+                if (user.types.Contains(Type.Fighting)) multiplier *= 1.5f; // STAB
+                multiplier *= TypeData.GetMultiplier(Type.Fighting, target.types); // Type
+                float damage = MoveEffects.CalculateDamage(user, target, power: 100, Category.Physical);
+                target.TakeDamage((int)(damage * multiplier));
 
                 user.stats.ModifyStage(Stat.Speed, -1);
             }
@@ -58,8 +61,10 @@ public static class MoveList
                 if (!MoveEffects.SuccessfulHit(100)) return;
 
                 float multiplier = 1f;
-                multiplier *= TypeData.GetMultiplier(Type.Ground, target.types);
-                target.TakeDamage(MoveEffects.CalculateDamage(user, target, power: 100, multiplier));
+                if (user.types.Contains(Type.Ground)) multiplier *= 1.5f; // STAB
+                multiplier *= TypeData.GetMultiplier(Type.Ground, target.types); // Type
+                float damage = MoveEffects.CalculateDamage(user, target, power: 100, Category.Physical);
+                target.TakeDamage((int)(damage * multiplier));
             }
         });
         moves.Add("megahorn", new Move
@@ -75,8 +80,10 @@ public static class MoveList
                 if (!MoveEffects.SuccessfulHit(85)) return;
 
                 float multiplier = 1f;
-                multiplier *= TypeData.GetMultiplier(Type.Bug, target.types);
-                target.TakeDamage(MoveEffects.CalculateDamage(user, target, power: 120, multiplier));
+                if (user.types.Contains(Type.Bug)) multiplier *= 1.5f; // STAB
+                multiplier *= TypeData.GetMultiplier(Type.Bug, target.types); // Type
+                float damage = MoveEffects.CalculateDamage(user, target, power: 120, Category.Physical);
+                target.TakeDamage((int)(damage * multiplier));
             }
         });
     }

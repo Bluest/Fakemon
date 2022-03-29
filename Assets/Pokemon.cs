@@ -12,6 +12,7 @@ public class Pokemon : MonoBehaviour
     int level = 50;
     int maxHP;
     int currentHP;
+    List<StatusCondition> statusConditions = new List<StatusCondition>();
     public BattleStats stats;
     List<Move> moves = new List<Move>();
     public Move selectedMove = null; // TODO: Only public for rough AI implementation
@@ -45,5 +46,15 @@ public class Pokemon : MonoBehaviour
     {
         currentHP -= damage;
         hpText.text = "HP: " + currentHP + "/" + maxHP;
+    }
+
+    public void ApplyStatusCondition(StatusCondition statusCondition, int percentageChance)
+    {
+        if (statusConditions.Contains(statusCondition)) return;
+        
+        if (Random.Range(0f, 100f) < percentageChance)
+        {
+            statusConditions.Add(statusCondition);
+        }
     }
 }
