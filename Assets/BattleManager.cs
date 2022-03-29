@@ -84,9 +84,20 @@ public class BattleManager : MonoBehaviour
 
     void PerformTurn()
     {
-        // TODO: Priority
+        submittedMoves.Sort(((Move, Pokemon, Pokemon) x, (Move, Pokemon, Pokemon) y) =>
+        {
+            if (x.Item2.stats.GetStat(Stat.Speed) > y.Item2.stats.GetStat(Stat.Speed)) return -1;
+            else return 1;
+        });
+
         foreach (var move in submittedMoves)
         {
+            if (move.Item2.HasStatusCondition(StatusCondition.Flinch))
+            {
+                move.Item2.RemoveStatusCondition(StatusCondition.Flinch);
+                continue;
+            }
+
             move.Item1.effect(move.Item2, move.Item3);
         }
 

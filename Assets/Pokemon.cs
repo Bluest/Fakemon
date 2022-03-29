@@ -7,9 +7,9 @@ public class Pokemon : MonoBehaviour
     [SerializeField] BattleManager battleManager; // TODO: This can be moved to Player along with SelectMove & SelectTarget, I think
     [SerializeField] Text hpText;
 
+    int level;
     public string nickname;
     public List<Type> types = new List<Type>();
-    int level = 50;
     int maxHP;
     int currentHP;
     List<StatusCondition> statusConditions = new List<StatusCondition>();
@@ -19,6 +19,7 @@ public class Pokemon : MonoBehaviour
 
     public void SetSpecies(Species species)
     {
+        level = 50;
         nickname = species.name;
         types.Add(Type.Ground);
         types.Add(Type.Rock);
@@ -56,5 +57,15 @@ public class Pokemon : MonoBehaviour
         {
             statusConditions.Add(statusCondition);
         }
+    }
+
+    public void RemoveStatusCondition(StatusCondition statusCondition)
+    {
+        statusConditions.Remove(statusCondition);
+    }
+
+    public bool HasStatusCondition(StatusCondition statusCondition)
+    {
+        return statusConditions.Contains(statusCondition);
     }
 }
