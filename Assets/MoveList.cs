@@ -18,11 +18,10 @@ public static class MoveList
             effect = (user, target) =>
             {
                 if (!MoveEffects.SuccessfulHit(100)) return;
-                float typeMultiplier = TypeData.GetMultiplier(Type.Normal, target.types);
-                target.TakeDamage(MoveEffects.CalculateDamage(user, target, power: 65, typeMultiplier));
 
-                string message = TypeData.GetEffectivenessMessage(typeMultiplier);
-                if (message != null) Debug.Log(message);
+                float multiplier = 1f;
+                multiplier *= TypeData.GetMultiplier(Type.Normal, target.types);
+                target.TakeDamage(MoveEffects.CalculateDamage(user, target, power: 65, multiplier));
 
                 // 30% flinch chance
             }
@@ -38,11 +37,10 @@ public static class MoveList
             effect = (user, target) =>
             {
                 if (!MoveEffects.SuccessfulHit(90)) return;
-                float typeMultiplier = TypeData.GetMultiplier(Type.Fighting, target.types);
-                target.TakeDamage(MoveEffects.CalculateDamage(user, target, power: 100, typeMultiplier));
-                
-                string message = TypeData.GetEffectivenessMessage(typeMultiplier);
-                if (message != null) Debug.Log(message);
+
+                float multiplier = 1f;
+                multiplier *= TypeData.GetMultiplier(Type.Fighting, target.types);
+                target.TakeDamage(MoveEffects.CalculateDamage(user, target, power: 100, multiplier));
 
                 user.stats.ModifyStage(Stat.Speed, -1);
             }
@@ -58,11 +56,10 @@ public static class MoveList
             effect = (user, target) =>
             {
                 if (!MoveEffects.SuccessfulHit(100)) return;
-                float typeMultiplier = TypeData.GetMultiplier(Type.Ground, target.types);
-                target.TakeDamage(MoveEffects.CalculateDamage(user, target, power: 100, typeMultiplier));
 
-                string message = TypeData.GetEffectivenessMessage(typeMultiplier);
-                if (message != null) Debug.Log(message);
+                float multiplier = 1f;
+                multiplier *= TypeData.GetMultiplier(Type.Ground, target.types);
+                target.TakeDamage(MoveEffects.CalculateDamage(user, target, power: 100, multiplier));
             }
         });
         moves.Add("megahorn", new Move
@@ -76,11 +73,10 @@ public static class MoveList
             effect = (user, target) =>
             {
                 if (!MoveEffects.SuccessfulHit(85)) return;
-                float typeMultiplier = TypeData.GetMultiplier(Type.Bug, target.types);
-                target.TakeDamage(MoveEffects.CalculateDamage(user, target, power: 120, typeMultiplier));
 
-                string message = TypeData.GetEffectivenessMessage(typeMultiplier);
-                if (message != null) Debug.Log(message);
+                float multiplier = 1f;
+                multiplier *= TypeData.GetMultiplier(Type.Bug, target.types);
+                target.TakeDamage(MoveEffects.CalculateDamage(user, target, power: 120, multiplier));
             }
         });
     }
