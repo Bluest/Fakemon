@@ -29,6 +29,7 @@ public class BattleManager : MonoBehaviour
 
         Pokemon pokemon1 = GameObject.Find("Pokemon1").GetComponent<Pokemon>();
         pokemon1.SetSpecies(rhydon);
+        pokemon1.nickname = "Player's Rhydon";
         
         Player player = GameObject.Find("Player").GetComponent<Player>();
         player.AddToTeam(pokemon1);
@@ -37,6 +38,7 @@ public class BattleManager : MonoBehaviour
 
         Pokemon pokemon2 = GameObject.Find("Pokemon2").GetComponent<Pokemon>();
         pokemon2.SetSpecies(rhydon);
+        pokemon2.nickname = "Enemy Rhydon";
 
         Player testAI = GameObject.Find("TestAI").GetComponent<Player>();
         testAI.AddToTeam(pokemon2);
@@ -48,10 +50,14 @@ public class BattleManager : MonoBehaviour
 
     void StartNewTurn()
     {
+        submittedMoves.Clear();
+
         foreach (Player player in players)
         {
             foreach (Pokemon pokemon in player.activePokemon)
             {
+                pokemon.RemoveStatusCondition(StatusCondition.Flinch);
+
                 waitingFor.Add(pokemon);
             }
         }
@@ -94,14 +100,15 @@ public class BattleManager : MonoBehaviour
         {
             if (move.Item2.HasStatusCondition(StatusCondition.Flinch))
             {
+                Debug.Log(move.Item2.nickname + " flinches");
                 move.Item2.RemoveStatusCondition(StatusCondition.Flinch);
                 continue;
             }
 
+            Debug.Log(move.Item2.nickname + " uses " + move.Item1.name);
             move.Item1.effect(move.Item2, move.Item3);
         }
 
-        submittedMoves.Clear();
         StartNewTurn();
     }
 }

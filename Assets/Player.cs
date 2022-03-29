@@ -27,9 +27,4 @@ public class Player : MonoBehaviour
         activePokemon.Remove(switchingOut);
         activePokemon.Add(switchingIn);
     }
-
-    public void AllowControl()
-    {
-
-    }
 }

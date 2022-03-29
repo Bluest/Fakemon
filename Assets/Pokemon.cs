@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class Pokemon : MonoBehaviour
 {
-    [SerializeField] BattleManager battleManager; // TODO: This can be moved to Player along with SelectMove & SelectTarget, I think
+    [SerializeField] BattleManager battleManager; // TODO: This can be moved to Player along with SelectMove & SelectTarget
     [SerializeField] Text hpText;
 
-    int level;
+    // TODO: Level is implied to be 50 in damage calculations
     public string nickname;
     public List<Type> types = new List<Type>();
     int maxHP;
@@ -19,7 +19,6 @@ public class Pokemon : MonoBehaviour
 
     public void SetSpecies(Species species)
     {
-        level = 50;
         nickname = species.name;
         types.Add(Type.Ground);
         types.Add(Type.Rock);
@@ -47,6 +46,7 @@ public class Pokemon : MonoBehaviour
     {
         currentHP -= damage;
         hpText.text = "HP: " + currentHP + "/" + maxHP;
+        Debug.Log(nickname + " takes " + damage + " damage");
     }
 
     public void ApplyStatusCondition(StatusCondition statusCondition, int percentageChance)
