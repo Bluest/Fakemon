@@ -61,6 +61,16 @@ public class BattleManager : MonoBehaviour
                 waitingFor.Add(pokemon);
             }
         }
+
+        foreach (Player aiTrainer in ai)
+        {
+            foreach (Pokemon pokemon in aiTrainer.activePokemon)
+            {
+                pokemon.RemoveStatusCondition(StatusCondition.Flinch);
+
+                waitingFor.Add(pokemon);
+            }
+        }
     }
 
     public void SubmitMove(Move move, Pokemon user, Pokemon target)
@@ -93,7 +103,8 @@ public class BattleManager : MonoBehaviour
         submittedMoves.Sort(((Move, Pokemon, Pokemon) x, (Move, Pokemon, Pokemon) y) =>
         {
             if (x.Item2.stats.GetStat(Stat.Speed) > y.Item2.stats.GetStat(Stat.Speed)) return -1;
-            else return 1;
+            else if (x.Item2.stats.GetStat(Stat.Speed) < y.Item2.stats.GetStat(Stat.Speed)) return 1;
+            else return Random.Range(0, 2) == 0 ? -1 : 1;
         });
 
         foreach (var move in submittedMoves)
